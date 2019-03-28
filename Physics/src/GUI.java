@@ -75,7 +75,8 @@ public class GUI extends JPanel {
     
     public boolean inputChecker() {
         // this function sets the user input into the private variables, it returns a boolean about the input validation
-        if(tImpactAngle.getText() .equals("Enter impact Angle")) { isEnteredImpactAngle = false; } //saves inputs that weren't entered for later check
+        if(tImpactAngle.getText() .equals("Enter impact Angle") || tImpactAngle.getText().equals(""))
+        { isEnteredImpactAngle = false; } //saves inputs that weren't entered for later check
         else {
             try {
                 impactAngle = Double.parseDouble(tImpactAngle.getText());
@@ -90,7 +91,8 @@ public class GUI extends JPanel {
             }
         }
 
-        if(tRefractionAngle.getText() .equals("Enter reflection Angle")) { isEnteredRefractiveAngle = false; } //saves inputs that weren't entered for later check
+        if(tRefractionAngle.getText() .equals("Enter reflection Angle") || tRefractionAngle.getText() .equals(""))
+        {isEnteredRefractiveAngle = false; } //saves inputs that weren't entered for later check
         else {
             try {
                 refrectionAngle = Double.parseDouble(tRefractionAngle.getText());
@@ -104,7 +106,8 @@ public class GUI extends JPanel {
             }
         }
 
-        if(tRefractiveIndexIn.getText() .equals("Enter refractive index (n1)")) { isEnteredN1 = false; }
+        if(tRefractiveIndexIn.getText() .equals("Enter refractive index (n1)") || tRefractiveIndexIn.getText() .equals(""))
+        { isEnteredN1 = false; }
         else {
             try {
                 n1 = Double.parseDouble(tRefractiveIndexIn.getText());
@@ -117,7 +120,8 @@ public class GUI extends JPanel {
             }
         }
 
-        if(tRefractiveIndexOut.getText() .equals("Enter refractive index (n2)")) { isEnteredN2 = false; }
+        if(tRefractiveIndexOut.getText() .equals("Enter refractive index (n2)") || tRefractiveIndexOut.getText().equals(""))
+        { isEnteredN2 = false; }
         else {
             try {
                 n2 = Double.parseDouble(tRefractiveIndexOut.getText());
