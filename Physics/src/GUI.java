@@ -13,7 +13,7 @@ public class GUI extends JPanel {
 
     private double radiantImpactAngle;
     private double radiantRefrectionAngle;
-    
+
     private ShyTextField tImpactAngle;
     private ShyTextField tRefractionAngle;
     private ShyTextField tRefractiveIndexIn;
@@ -48,8 +48,9 @@ public class GUI extends JPanel {
         tRefractiveIndexOut = new ShyTextField("Enter refractive index (n2)",39);
         tRefractiveIndexOut.setFont(new Font("David", Font.PLAIN, 17));
         this.add(tRefractiveIndexOut);
-        
-        Button start = new Button("START");
+
+        JPanel J = new JPanel();
+        MyButton start = new MyButton("START",J);
         start.setFont(new Font("David", Font.PLAIN, 32));
         start.addActionListener(new ActionListener() {
             @Override
@@ -236,5 +237,4 @@ public class GUI extends JPanel {
             }
         }
     }
-    
 }

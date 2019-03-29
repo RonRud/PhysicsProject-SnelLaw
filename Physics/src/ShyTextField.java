@@ -1,7 +1,8 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
-public class ShyTextField extends JTextField { //this is a textfield that makes the text disappear when focused
+public class ShyTextField extends TextField { //this is a textfield that makes the text disappear when focused
     private String defaultOutputText;
     
     public ShyTextField(String defaultOutputText, int length){
@@ -12,7 +13,9 @@ public class ShyTextField extends JTextField { //this is a textfield that makes 
         this.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent focusEvent) {
-                ShyTextField.this.setText("");
+                if(ShyTextField.this.getText().equals(ShyTextField.this.defaultOutputText)) {
+                    ShyTextField.this.setText("");
+                }
             }
     
             @Override
