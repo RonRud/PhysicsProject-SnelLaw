@@ -13,11 +13,11 @@ public class GUI extends JPanel {
 
     private double radiantImpactAngle;
     private double radiantRefrectionAngle;
-    
-    private TextField tImpactAngle;
-    private TextField tRefractionAngle;
-    private TextField tRefractiveIndexIn;
-    private TextField tRefractiveIndexOut;
+
+    private ShyTextField tImpactAngle;
+    private ShyTextField tRefractionAngle;
+    private ShyTextField tRefractiveIndexIn;
+    private ShyTextField tRefractiveIndexOut;
 
     private boolean isEnteredImpactAngle = true;
     private boolean isEnteredRefractiveAngle = true;
@@ -28,24 +28,29 @@ public class GUI extends JPanel {
         this.setPreferredSize(new Dimension(500,500));
         this.setLayout(new FlowLayout());
         this.setVisible(true);
-
-        tImpactAngle = new TextField("Enter impact Angle",19);
+    
+        System.out.println("hello");
+        
+        tImpactAngle = new ShyTextField("Enter impact Angle",19);
         tImpactAngle.setFont(new Font("David", Font.PLAIN, 17));
         this.add(tImpactAngle);
+    
+        System.out.println("hello");
         
-        tRefractionAngle = new TextField("Enter reflection Angle",19);
+        tRefractionAngle = new ShyTextField("Enter reflection Angle",19);
         tRefractionAngle.setFont(new Font("David", Font.PLAIN, 17));
         this.add(tRefractionAngle);
     
-        tRefractiveIndexIn = new TextField("Enter refractive index (n1)", 39);
+        tRefractiveIndexIn = new ShyTextField("Enter refractive index (n1)", 39);
         tRefractiveIndexIn.setFont(new Font("David", Font.PLAIN, 17));
         this.add(tRefractiveIndexIn);
         
-        tRefractiveIndexOut = new TextField("Enter refractive index (n2)",39);
+        tRefractiveIndexOut = new ShyTextField("Enter refractive index (n2)",39);
         tRefractiveIndexOut.setFont(new Font("David", Font.PLAIN, 17));
         this.add(tRefractiveIndexOut);
-        
-        Button start = new Button("START");
+
+        JPanel J = new JPanel();
+        MyButton start = new MyButton("START",J);
         start.setFont(new Font("David", Font.PLAIN, 32));
         start.addActionListener(new ActionListener() {
             @Override
@@ -232,5 +237,4 @@ public class GUI extends JPanel {
             }
         }
     }
-    
 }
