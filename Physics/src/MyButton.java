@@ -8,4 +8,8 @@ public class MyButton extends Button {
         super(title);
         this.diagramPanel = diagramPanel;
     }
+
+    public JPanel getInputedClass() {
+        return diagramPanel;
+    }
 }

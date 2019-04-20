@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GUI extends JPanel {
+public class GUI extends JFrame {
     
     private double impactAngle = 0;
     private double refrectionAngle = 0;
@@ -23,34 +23,49 @@ public class GUI extends JPanel {
     private boolean isEnteredRefractiveAngle = true;
     private boolean isEnteredN1 = true; //did the user Enter Refractive Index In
     private boolean isEnteredN2 = true; //did the user Enter Refractive Index Out
-    
+
+    private class ButtonsPane extends JPanel {
+        ButtonsPane() {
+            this.setVisible(true);
+            this.setSize(1000,200);
+            this.setPreferredSize(new Dimension(1000,200));
+
+            tImpactAngle = new ShyTextField("Enter impact Angle",19);
+            tImpactAngle.setFont(new Font("David", Font.PLAIN, 17));
+            this.add(tImpactAngle);
+
+            tRefractionAngle = new ShyTextField("Enter reflection Angle",19);
+            tRefractionAngle.setFont(new Font("David", Font.PLAIN, 17));
+            this.add(tRefractionAngle);
+
+            tRefractiveIndexIn = new ShyTextField("Enter refractive index (n1)", 39);
+            tRefractiveIndexIn.setFont(new Font("David", Font.PLAIN, 17));
+            this.add(tRefractiveIndexIn);
+
+            tRefractiveIndexOut = new ShyTextField("Enter refractive index (n2)",39);
+            tRefractiveIndexOut.setFont(new Font("David", Font.PLAIN, 17));
+            this.add(tRefractiveIndexOut);
+
+        }
+    }
+
     public GUI() {
-        this.setPreferredSize(new Dimension(500,500));
+        this.setSize(1000,700);
         this.setLayout(new FlowLayout());
         this.setVisible(true);
-    
-        System.out.println("hello");
-        
-        tImpactAngle = new ShyTextField("Enter impact Angle",19);
-        tImpactAngle.setFont(new Font("David", Font.PLAIN, 17));
-        this.add(tImpactAngle);
-    
-        System.out.println("hello");
-        
-        tRefractionAngle = new ShyTextField("Enter reflection Angle",19);
-        tRefractionAngle.setFont(new Font("David", Font.PLAIN, 17));
-        this.add(tRefractionAngle);
-    
-        tRefractiveIndexIn = new ShyTextField("Enter refractive index (n1)", 39);
-        tRefractiveIndexIn.setFont(new Font("David", Font.PLAIN, 17));
-        this.add(tRefractiveIndexIn);
-        
-        tRefractiveIndexOut = new ShyTextField("Enter refractive index (n2)",39);
-        tRefractiveIndexOut.setFont(new Font("David", Font.PLAIN, 17));
-        this.add(tRefractiveIndexOut);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        JPanel J = new JPanel();
+        ButtonsPane ButtonsPaneInstanse = new ButtonsPane();
+        this.add(ButtonsPaneInstanse);
+
+        JPanel J = new JPanel(); //TODO custom Panel for graphics
         MyButton start = new MyButton("START",J);
+
+        start.setPreferredSize(new Dimension(500,50));
+        J.setPreferredSize(new Dimension(1000,400));
+        //start.setSize(500,50);
+        //J.setSize(1000,400);
+
         start.setFont(new Font("David", Font.PLAIN, 32));
         start.addActionListener(new ActionListener() {
             @Override
@@ -66,6 +81,7 @@ public class GUI extends JPanel {
                     if(whatToDo()) {
                         System.out.println("true");
                         System.out.println(impactAngle + " " + refrectionAngle + " " + n1 + " " + n2);
+                        start.getInputedClass().setBackground(Color.BLACK);
                     }
                 }
                 isEnteredImpactAngle = true; // sets the booleans to default to prevent mistakes in retry
@@ -76,6 +92,8 @@ public class GUI extends JPanel {
             }
         });
         this.add(start);
+        this.add(J);
+        SwingUtilities.updateComponentTreeUI(this);
     }
     
     public boolean inputChecker() {
