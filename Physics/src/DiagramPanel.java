@@ -2,8 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class DiagramPanel extends JPanel {
-    private double impactAngle = 0;
-    private double refrectionAngle = 0;
+    private double radiantImpactAngle = 0;
+    private double radiantRefrectionAngle = 0;
     private double n1 = 0;
     private double n2 = 0;
 
@@ -13,7 +13,7 @@ public class DiagramPanel extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        if((impactAngle + refrectionAngle + n1 + n2) != 0) {
+        if((radiantImpactAngle + radiantRefrectionAngle + n1 + n2) != 0) {
             g.drawLine(0,250,1000,250);
             g.setFont(new Font("David", Font.PLAIN, 36));
 
@@ -23,14 +23,18 @@ public class DiagramPanel extends JPanel {
                 }
             }
 
+            int o = (int)(Math.tan(radiantImpactAngle) * 250); //draws the line for impact of light
+            g.drawLine(500,250,500 + o,0);
+
+
             g.drawString("N1 = " + n1,800,300);
             g.drawString("N2 = " + n2,800, 200);
         }
     }
 
-    public void newPaint(double impactAngle, double refrectionAngle, double n1, double n2) {
-        this.impactAngle = impactAngle;
-        this.refrectionAngle = refrectionAngle;
+    public void newPaint(double radiantImpactAngle, double radiantRefrectionAngle, double n1, double n2) {
+        this.radiantImpactAngle = radiantImpactAngle;
+        this.radiantRefrectionAngle = radiantRefrectionAngle;
         this.n1 = n1;
         this.n2 = n2;
         repaint();
