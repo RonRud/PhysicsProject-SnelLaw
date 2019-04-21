@@ -28,24 +28,23 @@ public class GUI extends JFrame {
         ButtonsPane() {
             this.setVisible(true);
             this.setSize(1000,200);
-            this.setPreferredSize(new Dimension(1000,200));
+            this.setPreferredSize(new Dimension(1000,150));
 
             tImpactAngle = new ShyTextField("Enter impact Angle",19);
-            tImpactAngle.setFont(new Font("David", Font.PLAIN, 17));
+            tImpactAngle.setFont(new Font("David", Font.PLAIN, 30));
             this.add(tImpactAngle);
 
             tRefractionAngle = new ShyTextField("Enter reflection Angle",19);
-            tRefractionAngle.setFont(new Font("David", Font.PLAIN, 17));
+            tRefractionAngle.setFont(new Font("David", Font.PLAIN, 30));
             this.add(tRefractionAngle);
 
-            tRefractiveIndexIn = new ShyTextField("Enter refractive index (n1)", 39);
-            tRefractiveIndexIn.setFont(new Font("David", Font.PLAIN, 17));
+            tRefractiveIndexIn = new ShyTextField("Enter refractive index (n1)", 19);
+            tRefractiveIndexIn.setFont(new Font("David", Font.PLAIN, 30));
             this.add(tRefractiveIndexIn);
 
-            tRefractiveIndexOut = new ShyTextField("Enter refractive index (n2)",39);
-            tRefractiveIndexOut.setFont(new Font("David", Font.PLAIN, 17));
+            tRefractiveIndexOut = new ShyTextField("Enter refractive index (n2)",19);
+            tRefractiveIndexOut.setFont(new Font("David", Font.PLAIN, 30));
             this.add(tRefractiveIndexOut);
-
         }
     }
 
@@ -65,7 +64,7 @@ public class GUI extends JFrame {
         //start.setSize(500,50);
         //J.setSize(1000,400);
 
-        start.setFont(new Font("David", Font.PLAIN, 32));
+        start.setFont(new Font("David", Font.BOLD, 36));
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
