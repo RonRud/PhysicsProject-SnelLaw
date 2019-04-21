@@ -58,11 +58,10 @@ public class GUI extends JFrame {
         ButtonsPane ButtonsPaneInstanse = new ButtonsPane();
         this.add(ButtonsPaneInstanse);
 
-        JPanel J = new JPanel(); //TODO custom Panel for graphics
+        DiagramPanel J = new DiagramPanel(); //TODO custom Panel for graphics
         MyButton start = new MyButton("START",J);
 
         start.setPreferredSize(new Dimension(500,50));
-        J.setPreferredSize(new Dimension(1000,400));
         //start.setSize(500,50);
         //J.setSize(1000,400);
 
@@ -81,7 +80,7 @@ public class GUI extends JFrame {
                     if(whatToDo()) {
                         System.out.println("true");
                         System.out.println(impactAngle + " " + refrectionAngle + " " + n1 + " " + n2);
-                        start.getInputedClass().setBackground(Color.BLACK);
+                        start.diagramPanel.newPaint(impactAngle,refrectionAngle,n1,n2);
                     }
                 }
                 isEnteredImpactAngle = true; // sets the booleans to default to prevent mistakes in retry

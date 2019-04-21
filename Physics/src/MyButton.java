@@ -2,9 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MyButton extends Button {
-    private JPanel diagramPanel;
+    public DiagramPanel diagramPanel;
     
-    MyButton(String title ,JPanel diagramPanel) {
+    MyButton(String title ,DiagramPanel diagramPanel) {
         super(title);
         this.diagramPanel = diagramPanel;
     }
