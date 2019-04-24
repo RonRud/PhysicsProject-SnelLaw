@@ -79,7 +79,7 @@ public class GUI extends JFrame {
                     if(whatToDo()) {
                         System.out.println("true");
                         System.out.println(impactAngle + " " + refrectionAngle + " " + n1 + " " + n2);
-                        start.diagramPanel.newPaint(impactAngle,refrectionAngle,n1,n2);
+                        start.diagramPanel.newPaint(impactAngle,refrectionAngle,radiantImpactAngle,radiantRefrectionAngle,n1,n2);
                     }
                 }
                 isEnteredImpactAngle = true; // sets the booleans to default to prevent mistakes in retry
