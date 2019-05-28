@@ -31,14 +31,14 @@ public class DiagramPanel extends JPanel {
 
             //int upParameterForDirection = (int)(Math.tan(Math.toRadians(45- impactAngle)) * 25); old version works (backup)
             //g.drawLine(500 + (o/2),125,500 + (o/2) + 25, 125 - upParameterForDirection); ^^^
-            int rightNewX = (int) (Math.cos(Math.toRadians(45 - impactAngle)) * 25 + 500 + o / 2); //calculates what to add to x and adds it to x
-            int rightNewY = (int) (125 - Math.sin(Math.toRadians(45 - impactAngle)) * 25); //calculates what to add to y (lowers because y starts from the top) and adds it to y
-            g.drawLine(500 + o / 2, 125, rightNewX, rightNewY);
+            int impactLineRightNewX = (int) (Math.cos(Math.toRadians(45 - impactAngle)) * 25 + 500 + o / 2); //calculates what to add to x and adds it to x
+            int impactLineRightNewY = (int) (125 - Math.sin(Math.toRadians(45 - impactAngle)) * 25); //calculates what to add to y (lowers because y starts from the top) and adds it to y
+            g.drawLine(500 + o / 2, 125, impactLineRightNewX, impactLineRightNewY);
             //g.drawArc(500,200,o/5,50,0,90 + (int)impactAngle);
 
-            int leftNewX = (int) (Math.cos(Math.toRadians(135 - impactAngle)) * 25 + 500 + (o / 2)); //calculates what to add to x and adds it to x
-            int leftNewY = (int) (125 - Math.sin(Math.toRadians(135 - impactAngle)) * 25); //calculates what to add to y (lowers because y starts from the top) and adds it to y
-            g.drawLine(500 + (o / 2), 125, leftNewX, leftNewY);
+            int impactLineLeftNewX = (int)(Math.cos(Math.toRadians(135 - impactAngle)) * 25 + 500 + (o / 2)); //calculates what to add to x and adds it to x
+            int imapctLinLeftNewY = (int) (125 - Math.sin(Math.toRadians(135 - impactAngle)) * 25); //calculates what to add to y (lowers because y starts from the top) and adds it to y
+            g.drawLine(500 + (o / 2), 125, impactLineLeftNewX, imapctLinLeftNewY);
 
             g.drawString("N1 = " + n1, 800, 200);
             g.drawString("N2 = " + n2, 800, 300);
