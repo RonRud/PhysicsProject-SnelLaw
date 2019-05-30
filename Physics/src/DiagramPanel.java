@@ -64,6 +64,7 @@ public class DiagramPanel extends JPanel {
             }
         }
     }
+    
     public void newPaint() {
         this.g = Main.getG();
         this.radiantImpactAngle = g.getRadiantImpactAngle();
