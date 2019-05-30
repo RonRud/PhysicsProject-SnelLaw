@@ -8,7 +8,6 @@ public class DiagramPanel extends JPanel {
     private double n2 = 0;
     private double impactAngle;
     private double refrectionAngle;
-    private GUI g;
 
     DiagramPanel() {
           this.setPreferredSize(new Dimension(1000,500));
@@ -44,33 +43,36 @@ public class DiagramPanel extends JPanel {
             g.drawString("N2 = " + n2, 800, 300);
             //display formula for user
             g.setFont(new Font("David", Font.PLAIN, 24));
-            g.drawString("N1*sin(impactAngle) = N2*sin(refractionAngle)", 500, 320); // Refraction instead of Refrection but I put it wrong for consistency's sake
+            g.drawString("N1*sin(impactAngle) = N2*sin(refractionAngle)", 510, 320); // Refraction instead of Refrection but I put it wrong for consistency's sake
+            String x = Double.toString(n1) + " * sin(" + Double.toString(impactAngle) + ") = " + Double.toString(n2) + " * sin(" + Double.toString(refrectionAngle) + ")";
+            g.drawString(x);
             
             if ((Math.sin(radiantImpactAngle) * n1/n2) > 1) { //works when full return
                 g.drawLine(500, 250, 500 - impactLineSideParameter, 0); //draws the return line assuming it's the same angle the distance will be o
-                int returnLineLeftNewX = (int) (500 - impactLineSideParameter / 2 - Math.cos(Math.toRadians(45 - impactAngle)) * 25);
-                int returnLineLeftNewY = (int) (125 - Math.sin(Math.toRadians(45 - impactAngle)) * 25);
+                int returnLineLeftNewX = (int) (500 - impactLineSideParameter / 2 - Math.cos(Math.toRadians(45 + impactAngle)) * 25);
+                int returnLineLeftNewY = (int) (125 + Math.sin(Math.toRadians(45 + impactAngle)) * 25);
                 g.drawLine(500 - impactLineSideParameter / 2, 125, returnLineLeftNewX, returnLineLeftNewY);
     
-                //int returnLineRightNewX = (int) (Math.cos(Math.toRadians(135 - impactAngle)) * 25 + 500 + (o / 2));
-                //int returnLineRightNewY = (int) (125 - Math.sin(Math.toRadians(135 - impactAngle)) * 25);
-            }else {
+                int returnLineRightNewX = (int) (500 - (impactLineSideParameter/2) + Math.sin(Math.toRadians(45 + impactAngle)) * 25 );
+                int returnLineRightNewY = (int) (125 + Math.cos(Math.toRadians(45 + impactAngle)) * 25);
+                g.drawLine(500 - impactLineSideParameter / 2, 125, returnLineRightNewX, returnLineRightNewY);
+            }else {//refraction
                 int refractionLineSideParameter = (int) (Math.tan(radiantRefrectionAngle) * 250);
-                g.drawLine(500, 250, 500 - refractionLineSideParameter, 500);
+                g.drawLine(500, 250, 500 - refractionLineSideParameter, 500); //draws the refraction line
 
                 int refractionLineLeftNewX = (int) (500 - (refractionLineSideParameter/2) + Math.sin(Math.toRadians(45 +refrectionAngle)) * 25);
                 int refractionLineLeftNewY = (int) (375 - (Math.cos(Math.toRadians(45 +refrectionAngle)) * 25));
                 g.drawLine(500 - refractionLineSideParameter/2, 375, refractionLineLeftNewX, refractionLineLeftNewY);
     
                 int refractionLineRightNewX = (int) (500 - (refractionLineSideParameter/2) - Math.cos(Math.toRadians(45 +refrectionAngle)) * 25);
-                int refractionLineRightNewY = (int) (375 - (refractionLineSideParameter/2) - Math.sin(Math.toRadians(45 +refrectionAngle)) * 25);//not working correctly
+                int refractionLineRightNewY = (int) (375 - Math.sin(Math.toRadians(45 +refrectionAngle)) * 25);//not working correctly
                 g.drawLine(500 - refractionLineSideParameter/2, 375, refractionLineRightNewX, refractionLineRightNewY);
             }
         }
     }
     
     public void newPaint() {
-        this.g = Main.getG();
+        GUI g = Main.getG();
         this.radiantImpactAngle = g.getRadiantImpactAngle();
         this.radiantRefrectionAngle = g.getRadiantRefractionAngle();
         this.n1 = g.getN1();
