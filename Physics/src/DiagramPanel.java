@@ -61,6 +61,10 @@ public class DiagramPanel extends JPanel {
                 int refractionLineLeftNewX = (int) (500 - (refractionLineSideParameter/2) + Math.sin(Math.toRadians(45 +refrectionAngle)) * 25);
                 int refractionLineLeftNewY = (int) (375 - (Math.cos(Math.toRadians(45 +refrectionAngle)) * 25));
                 g.drawLine(500 - refractionLineSideParameter/2, 375, refractionLineLeftNewX, refractionLineLeftNewY);
+    
+                int refractionLineRightNewX = (int) (500 - (refractionLineSideParameter/2) - Math.cos(Math.toRadians(45 +refrectionAngle)) * 25);
+                int refractionLineRightNewY = (int) (375 - (refractionLineSideParameter/2) - Math.sin(Math.toRadians(45 +refrectionAngle)) * 25);//not working correctly
+                g.drawLine(500 - refractionLineSideParameter/2, 375, refractionLineRightNewX, refractionLineRightNewY);
             }
         }
     }
