@@ -45,7 +45,7 @@ public class DiagramPanel extends JPanel {
             g.setFont(new Font("David", Font.PLAIN, 24));
             g.drawString("N1*sin(impactAngle) = N2*sin(refractionAngle)", 510, 320); // Refraction instead of Refrection but I put it wrong for consistency's sake
             String x = Double.toString(n1) + " * sin(" + Double.toString(impactAngle) + ") = " + Double.toString(n2) + " * sin(" + Double.toString(refrectionAngle) + ")";
-            g.drawString(x);
+            g.drawString(x,510,344);
             
             if ((Math.sin(radiantImpactAngle) * n1/n2) > 1) { //works when full return
                 g.drawLine(500, 250, 500 - impactLineSideParameter, 0); //draws the return line assuming it's the same angle the distance will be o
@@ -65,7 +65,7 @@ public class DiagramPanel extends JPanel {
                 g.drawLine(500 - refractionLineSideParameter/2, 375, refractionLineLeftNewX, refractionLineLeftNewY);
     
                 int refractionLineRightNewX = (int) (500 - (refractionLineSideParameter/2) - Math.cos(Math.toRadians(45 +refrectionAngle)) * 25);
-                int refractionLineRightNewY = (int) (375 - Math.sin(Math.toRadians(45 +refrectionAngle)) * 25);//not working correctly
+                int refractionLineRightNewY = (int) (375 - Math.sin(Math.toRadians(45 +refrectionAngle)) * 25);
                 g.drawLine(500 - refractionLineSideParameter/2, 375, refractionLineRightNewX, refractionLineRightNewY);
             }
         }
